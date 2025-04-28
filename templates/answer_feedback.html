@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block extra_head %}
+  <script defer src="{{ url_for('static', path='answer.js') }}"></script>
+{% endblock %}
+{% block content %}
+  <h2>{{ result }}</h2>
+  <p><strong>{{ question }}</strong></p>
+  <ul>
+    {% for opt in options %}
+      <li
+        {% if opt==selected_option and opt!=correct_answer %} style="text-decoration:line-through;color:red;"
+        {% elif opt==correct_answer %} style="color:green;font-weight:600;"
+        {% endif %}>
+        {{ opt }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  <audio id="result-audio" autoplay>
+    <source src="/static/audio/result/result_{{ question_id + 1 }}.wav" type="audio/wav">
+  </audio>
+
+  <div id="chat-window"></div>
+
+  <script id="server-data" type="application/json">
+    {{ {
+        "prompt":  prompt_text,
+        "reply":   reply_text,
+        "wav":     comment_wav,
+        "next_id": next_id
+    } | tojson }}
+  </script>
+{% endblock %}

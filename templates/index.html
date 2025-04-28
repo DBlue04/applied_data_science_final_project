@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Welcome!</h1>
+
+  <audio controls preload="auto">
+    <source src="/static/audio/intro/intro.wav" type="audio/wav">
+    Your browser doesn’t support audio.
+  </audio>
+
+  <p>Ready to play?</p>
+  <a href="/quiz/0" class="button">Start Quiz</a>
+{% endblock %}

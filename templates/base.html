@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ title or "Quiz-Game" }}</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{--accent:#007bff;--bg:#fafafa;--radius:8px}
+    *{box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{margin:0;background:var(--bg);color:#333;display:flex;min-height:100vh;flex-direction:column}
+    header{background:var(--accent);color:#fff;padding:1rem 1.5rem}
+    main{flex:1;width:100%;max-width:700px;margin:auto;padding:1.5rem}
+    h1,h2{margin-top:0;font-weight:600}
+    a.button,button[type=submit]{background:var(--accent);color:#fff;padding:.6rem 1.2rem;border:none;
+      border-radius:var(--radius);cursor:pointer;text-decoration:none;font-size:1rem}
+    label{display:block;margin:.4rem 0}
+    input[type=radio]{margin-right:.3rem;transform:scale(1.1)}
+    #chat-window{border:1px solid #ddd;background:#fff;padding:.6rem;height:160px;overflow-y:auto;
+      border-radius:var(--radius);margin-bottom:.5rem}
+    .bot{color:var(--accent)} .user{text-align:right}
+    audio{width:100%;margin:.5rem 0}
+  </style>
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header><h2>🎙️ Virtual MC Quiz</h2></header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

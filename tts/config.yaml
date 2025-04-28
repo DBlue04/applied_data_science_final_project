@@ -1,0 +1,23 @@
+model:
+  path: "local_f5/model.safetensors"
+  vocab: "local_f5/vocab.txt  "
+
+inference:
+  default_speed: 1.0
+  nfe_steps: 8
+  cfg_strength: 2
+  sway_sampling_coef: -1.0
+  cross_fade_duration: 0
+  ode_method: "rk4"
+  estimate_duration: false
+  quantization: 4
+
+device:
+  use_cuda: false
+
+audio:
+  duration: 5.33
+  ref_text: "Reference text"
+
+output:
+  path: "output_audio.wav"
